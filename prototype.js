@@ -3,10 +3,10 @@
 // 2. Prototype of constructor function
 
 // create an object which has a prototype is a parameter
-const a = { name: "a" };
-const b = Object.create(a);
-console.log(Object.getPrototypeOf(a));
-console.log(Object.getPrototypeOf(b));
+// const a = { name: "a" };
+// const b = Object.create(a);
+// console.log(Object.getPrototypeOf(a));
+// console.log(Object.getPrototypeOf(b));
 
 // create prototype for a constructor function
 // instances built from that constructor will have that prototype

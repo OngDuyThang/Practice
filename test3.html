@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Invitation</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #e6f3ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        animation: fadeIn 1s ease;
+        box-sizing: border-box;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .card {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 120, 180, 0.2);
+        padding: 40px 30px;
+        max-width: 520px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        animation: slideIn 1s ease-out;
+        box-sizing: border-box;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .sweet-potato {
+        width: 20vw;
+        max-width: 100px;
+        min-width: 60px;
+        margin-bottom: 20px;
+      }
+
+      .card h1 {
+        color: #3399ff;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .card p {
+        color: #444;
+        font-size: 1rem;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .card .details {
+        margin: 20px 0;
+        padding: 15px;
+        background: #f0f8ff;
+        border-left: 8px solid #3399ff;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        color: #333;
+        text-align: left;
+        line-height: 1.75rem;
+      }
+
+      .card button {
+        background-color: #3399ff;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s;
+      }
+
+      .card button:hover {
+        background-color: #007acc;
+        transform: scale(1.05);
+      }
+
+      .thank-you {
+        display: none;
+        opacity: 0;
+        margin-top: 25px;
+        font-size: 1rem;
+        color: #3399ff;
+        transition: opacity 0.6s ease;
+      }
+
+      .thank-you.show {
+        display: block;
+      }
+
+      .thank-you.fade-in {
+        opacity: 1;
+      }
+
+      /* Responsive tweaks for smaller screens */
+      @media (max-width: 480px) {
+        .card {
+          padding: 25px 20px;
+        }
+
+        .card p,
+        .card .details,
+        .thank-you {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <!-- Cute Sweet Potato SVG -->
+      <svg
+        class="sweet-potato"
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Sweet potato body -->
+        <path
+          d="M30 10 
+             Q20 30 25 50 
+             Q30 80 60 90 
+             Q80 80 75 45 
+             Q70 20 50 10 
+             Q40 5 30 10"
+          fill="#C76B29"
+          stroke="#8B4513"
+          stroke-width="2"
+        />
+        <!-- Texture lines -->
+        <path
+          d="M35 30 Q45 35 40 45"
+          stroke="#a0522d"
+          stroke-width="1.5"
+          fill="none"
+        />
+        <path
+          d="M50 60 Q55 65 50 70"
+          stroke="#a0522d"
+          stroke-width="1.5"
+          fill="none"
+        />
+        <!-- Eyes -->
+        <circle cx="40" cy="40" r="3" fill="#000" />
+        <circle cx="60" cy="42" r="3" fill="#000" />
+        <!-- Smile -->
+        <path
+          d="M42 52 Q50 58 58 52"
+          stroke="#000"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+        />
+        <!-- Blush -->
+        <circle cx="35" cy="45" r="2" fill="#f8a" />
+        <circle cx="65" cy="47" r="2" fill="#f8a" />
+      </svg>
+
+      <h1>Có củ khoai lang mời bạn đi chơi :))))</h1>
+      <p>Huynh gửi mụi tấm thiệp hẹn cho ngày mai nghen</p>
+      <p>Mời người đệp đi ăn tối với huynh nghen 🥔</p>
+      <div class="details">
+        <strong>Ngày:</strong> Chủ Nhật, 20/4<br />
+        <strong>Giờ đón:</strong> 6:30 chiều<br />
+        <strong>Điểm đến:</strong> Chilli Thái Thiso Mall Trường Chi, Đường Phan
+        Huy Ích, Phường 14, Gò Vấp<br />
+      </div>
+      <button onclick="showThankYou()">Oce luôn</button>
+      <div class="thank-you" id="thankYouMessage">
+        💬 Oce hẹn gặp mụi nè :))))
+      </div>
+    </div>
+
+    <script>
+      function showThankYou() {
+        const msg = document.getElementById("thankYouMessage");
+        msg.classList.add("show");
+        setTimeout(() => {
+          msg.classList.add("fade-in");
+        }, 50);
+      }
+    </script>
+  </body>
+</html>

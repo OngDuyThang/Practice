@@ -28,4 +28,7 @@ const user = {
     }
 } satisfies User
 
+user.picture.url
+// user.picture.length
+
 export {}

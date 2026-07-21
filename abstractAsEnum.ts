@@ -24,3 +24,5 @@ function func(someClass: A) {
 }
 
 func(new B())
+
+export {}
