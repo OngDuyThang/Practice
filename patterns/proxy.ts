@@ -1,12 +1,19 @@
-interface Video {
-    play(): void
+// Using an abstract class with extends (inheritance) is significantly more popular and is the intended primary use case.
+// Using implements with an abstract class is rare because it strips away the class's biggest benefit: code reuse.
+abstract class Video {
+    protected constructor(
+        protected name: string,
+        protected url: string
+    ) {}
+    abstract play(): void
 }
 
-class RealVideo implements Video {
+class RealVideo extends Video {
     public constructor(
-        private name: string,
-        private url: string
+        name: string,
+        url: string
     ) {
+        super(name, url)
         console.log(`load video from url: ${this.url}`)
     }
 
@@ -15,12 +22,14 @@ class RealVideo implements Video {
     }
 }
 
-class ProxyVideo implements Video {
+class ProxyVideo extends Video {
     public constructor(
-        private name: string,
-        private url: string,
+        name: string,
+        url: string,
         private realVideo?: RealVideo
-    ) {}
+    ) {
+        super(name, url)
+    }
 
     public play() {
         if (!this.realVideo) {
@@ -33,8 +42,14 @@ class ProxyVideo implements Video {
 }
 
 const video: Video = new ProxyVideo('video name', 'https://youtube.com')
+
 video.play()
+console.log('=====================================')
+
 video.play()
+console.log('=====================================')
+
 video.play()
+console.log('=====================================')
 
 export {}
